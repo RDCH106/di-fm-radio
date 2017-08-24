@@ -10,8 +10,33 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+  <script src="https://rawgit.com/nickdesaulniers/javascript-playlist-parser/master/lib/parser.min.js"></script>
   
   <script>
+  
+    var playlist;
+  
+    // Fetch the playlist file, using xhr for example
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://rawgit.com/RDCH106/55a7e404985b214605087e884267f8df/raw/b094fa408d0a5a92c875f9e2b93542077489bf2a/DI.m3u");
+    xhr.overrideMimeType("audio/x-mpegurl"); // Needed, see below.
+    xhr.onload = parse;
+    xhr.send();
+    
+    // Parse it
+    function parse () {
+        var playlist = M3U.parse(this.response);
+        console.log(playlist)
+        var options = document.getElementById("selection");
+        for (var i = 0; i < playlist.length; i++){
+            var option = document.createElement("option");
+            option.text = playlist[i].title;
+            option.value = playlist[i].file;
+            options.add(option);
+        }
+        $('.selectpicker').selectpicker('refresh');
+    };
+  
     $(document).ready(function() {
 
         $('#selection').on('change', function() {
@@ -57,35 +82,8 @@
         </audio>
         <div>&nbsp;</div>
         <select id="selection" class="selectpicker">
-            <option value="none" selected>- Select your flavor -</option>
-            <option value="http://pub1.diforfree.org:8000/di_ambient_hi">Ambient</option>
-            <option value="http://pub1.diforfree.org:8000/di_bigroomhouse_hi">Big Room House</option>
-            <option value="http://pub1.diforfree.org:8000/di_breaks_hi">Breaks</option>
-            <option value="http://pub1.diforfree.org:8000/di_chillhop_hi">ChillHop</option>
-            <option value="http://pub1.diforfree.org:8000/di_chillout_hi">Chillout</option>
-            <option value="http://pub1.diforfree.org:8000/di_chilloutdreams_hi">Chillout Dreams</option>
-            <option value="http://pub1.diforfree.org:8000/di_chiptunes_hi">Chiptunes</option>            
-            <option value="http://pub1.diforfree.org:8000/di_classiceurodance_hi">Classic Eurodance</option>
-            <option value="http://pub1.diforfree.org:8000/di_classiceurodisco_hi">Classic EuroDisco</option>
-            <option value="http://pub1.diforfree.org:8000/di_classictrance_hi">Classic Trance</option>
-            <option value="http://pub1.diforfree.org:8000/di_classicvocaltrance_hi">Classic Vocal Trance</option>
-            <option value="http://pub1.diforfree.org:8000/di_clubdubstep_hi">Club Dubstep</option>
-            <option value="http://pub1.diforfree.org:8000/di_clubsounds_hi">Club Sounds</option>
-            <option value="http://pub1.diforfree.org:8000/di_cosmicdowntempo_hi">Cosmic Downtempo</option>
-            <option value="http://pub1.diforfree.org:8000/di_darkdnb_hi">Dark DnB</option>
-            <option value="http://pub1.diforfree.org:8000/di_deephouse_hi">Deep House</option>
-            <option value="http://pub1.diforfree.org:8000/di_deepnudisco_hi">Deep Nu-Disco</option>
-            <option value="http://pub1.diforfree.org:8000/di_deeptech_hi">Deep Tech</option>
-            <option value="http://pub1.diforfree.org:8000/di_discohouse_hi">Disco House</option>
-            <option value="http://pub1.diforfree.org:8000/di_djmixes_hi">DJ MIXES</option>
-            <option value="http://pub1.diforfree.org:8000/di_downtempolounge_hi">Downtempo Lounge</option>
-            <option value="http://pub1.diforfree.org:8000/di_drumandbass_hi">Drum and Bass</option>
-            <option value="http://pub1.diforfree.org:8000/di_drumandbass_hi">Drum and Bass</option>
-            <option value="http://pub1.diforfree.org:8000/di_dubstep_hi">Dubstep</option>
-            <option value="http://pub1.diforfree.org:8000/di_eclectronica_hi">EcLectronica</option>
-            <option value="http://pub1.diforfree.org:8000/di_electrohouse_hi">Electro House</option>
-            <option value="http://pub1.diforfree.org:8000/di_epictrance_hi">Epic Trance</option>
-            <option value="http://pub1.diforfree.org:8000/di_eurodance_hi">Eurodance</option>
+            <option value="none" selected>- Select your flavor -</option>            
+            <!--<option value="http://pub1.diforfree.org:8000/di_eurodance_hi">Eurodance</option>-->
         </select>
        
     </div>
