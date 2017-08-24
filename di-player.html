@@ -6,8 +6,36 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+
+        $('#selection').on('change', function() {
+            change($(this).val(), $(this).find('option:selected').text());
+        });
+
+    });
+
+
+    function change(sourceUrl, name) {
+        var audio = document.getElementById("player");
+        var source = document.getElementById("radio_source");
+        var title = document.getElementById("radio_name");
+
+        if (sourceUrl != "none") {
+            audio.pause();
+            title.innerHTML = name
+            source.src = sourceUrl;
+            audio.load();
+            audio.play();
+  }
+}
+  </script>
+  
 </head>
 
 <body>
@@ -19,14 +47,20 @@
     <div class="container text-center">
         
         <div>
-        <img src="https://raw.githubusercontent.com/RDCH106/di-fm-radio/master/headphones_music.gif" width="200">
+        <img src="https://raw.githubusercontent.com/RDCH106/di-fm-radio/master/headphones_music.gif" width="200" alt="">
         </div>
         
-        <h3>📻 <q id="radio_name">Classic Eurodance</q></h3>
-        <audio controls>
-            <source id="radio_source" src="http://pub1.diforfree.org:8000/di_classiceurodance_hi">
+        <h3>📻 <q id="radio_name">Are you thinking?</q></h3>
+        <audio id="player" controls>
+            <source id="radio_source" src="none">
             Your browser does not support the audio element.
         </audio>
+        <div>&nbsp;</div>
+        <select id="selection" class="selectpicker">
+            <option value="none" selected>- Select your flavor -</option>
+            <option value="http://pub1.diforfree.org:8000/di_classiceurodance_hi">Classic Eurodance</option>
+            <option value="http://pub1.diforfree.org:8000/di_eurodance_hi">Eurodance</option>
+        </select>
        
     </div>
 
