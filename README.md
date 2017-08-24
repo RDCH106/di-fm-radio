@@ -6,4 +6,4 @@ Digitally Imported Radio from your Browser using plublic resources
 
 👉 License: [MIT](https://github.com/RDCH106/di-fm-radio/blob/master/LICENSE)
 
-👀 **[Online Player](https://cdn.rawgit.com/RDCH106/di-fm-radio/d1834198/di-player.html)** 🎧🎵🎧
+👀 **[Online Player](https://rawgit.com/RDCH106/di-fm-radio/master/di-player.html)** 🎧🎵🎧
