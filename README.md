@@ -10,7 +10,7 @@ The minimalist and responsive player uses native capabilities of the web browser
 
 👀 **[Online Player](https://rawgit.com/RDCH106/di-fm-radio/master/di-player.html)** 🎧🎵🎧
 
-
+![Screenshot](https://rawgit.com/RDCH106/di-fm-radio/master/img/di-fm-radio-screenshot.PNG)
 
 ### Libs and Projects used
 
