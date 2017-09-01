@@ -32,6 +32,7 @@
             var option = document.createElement("option");
             option.text = playlist[i].title;
             option.value = playlist[i].file;
+            option.setAttribute("data-icon", "glyphicon-music");
             options.add(option);
         }
         $('.selectpicker').selectpicker('refresh');
@@ -82,7 +83,7 @@
         </audio>
         <div>&nbsp;</div>
         <select id="selection" class="selectpicker show-tick" data-live-search="true">
-            <option value="none" selected>- Select your flavor -</option>            
+            <option data-icon="glyphicon-flash" value="none" selected>- Select your flavor -</option>            
             <!--<option value="http://pub1.diforfree.org:8000/di_eurodance_hi">Eurodance</option>-->
         </select>
        
