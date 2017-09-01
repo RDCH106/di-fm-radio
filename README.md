@@ -15,4 +15,4 @@ The minimalist and responsive player uses native capabilities of the web browser
 ### Libs and Projects used
 
 - [javascript-playlist-parser](https://github.com/nickdesaulniers/javascript-playlist-parser) by [@nickdesaulniers](https://github.com/nickdesaulniers)
-
+- [bootstrap-select](https://github.com/silviomoreto/bootstrap-select) by [@silviomoreto](https://github.com/silviomoreto)
