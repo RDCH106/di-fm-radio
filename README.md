@@ -8,7 +8,7 @@ The minimalist and responsive player uses native capabilities of the web browser
 
 👉 License: [MIT](https://github.com/RDCH106/di-fm-radio/blob/master/LICENSE)
 
-👀 **[Online Player](https://rawgit.com/RDCH106/di-fm-radio/master/di-player.html)** 🎧🎵🎧
+⚠️ Music resources not working ⚠️ 👀 **[Online Player](https://rawgit.com/RDCH106/di-fm-radio/master/di-player.html)** 🎧🎵🎧
 
 ![Screenshot](https://rawgit.com/RDCH106/di-fm-radio/master/img/di-fm-radio-screenshot.PNG)
 
